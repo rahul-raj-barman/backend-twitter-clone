@@ -13,7 +13,7 @@ require("dotenv").config();
 
 global.__basedir = __dirname;
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 //middlewares
@@ -38,6 +38,6 @@ app.use('/auth', UserRoute)
 app.use('/file', FileRoute)
 app.use('/api', TweetRoute)
 
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
     console.log('Server is listenning...')
 })
