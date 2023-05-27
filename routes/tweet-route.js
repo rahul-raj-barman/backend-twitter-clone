@@ -74,9 +74,9 @@ router.post('/tweet/:id/like', protectedResource, (req, res) => {
           return res.status(400).json({ error: 'Already liked by the user' });
         }
   
-        if (tweet.tweetedBy.toString() === userId) {
-          return res.status(400).json({ error: 'Cannot like own tweet' });
-        }
+        // if (tweet.tweetedBy.toString() === userId) {
+        //   return res.status(400).json({ error: 'Cannot like own tweet' });
+        // }
   
         tweet.likes.push(userId);
         tweet.save()
